@@ -1,38 +1,169 @@
-import React, { useState, Fragment } from 'react'
-import { Article, Segment } from 'xueyan-react-markdown'
-import Playground from 'xueyan-react-playground'
-import { Switch } from 'xueyan-react-icon'
-
-const MARK1 = `
-## xueyan-react-icon
-
-\`xueyan-react-icon\` is a react component.  
-
-## Usage
-`
-
-const code1 = `
 import React, { useState } from 'react'
-import Switch from 'xueyan-react-icon'
-
-export default function Example() {
-  const [state, setState] = useState<boolean>(false)
-  return (
-    <Fragment>
-      <span>switch: </span>
-      <Switch value={state} onChange={setState} />
-    </Fragment>
-  )
-}
-`
+import { 
+  ArrowIcon, 
+  SearchIcon, 
+  LoadingIcon, 
+  BellIcon,
+  CheckIcon,
+  CircleIcon,
+  ClipIcon,
+  CloseIcon,
+  CodeIcon,
+  DecreaseIcon,
+  DeleteIcon,
+  DirectionIcon,
+  DoubtIcon,
+  DownloadIcon,
+  DragIcon,
+  EditIcon,
+  ErrorIcon,
+  ExportIcon,
+  FileIcon,
+  FolderIcon,
+  FontIcon,
+  HomeIcon,
+  ImportIcon,
+  IncreaseIcon,
+  InfoLineIcon,
+  InfoIcon,
+  InvisibleIcon,
+  LabelLineIcon,
+  LabelIcon,
+  LockedIcon,
+  MenuIcon,
+  MessageIcon,
+  MinusIcon,
+  MoonIcon,
+  MoreIcon,
+  PauseIcon,
+  PendingIcon,
+  PlayIcon,
+  PlusIcon,
+  PowerIcon,
+  QuestionLineIcon,
+  QuestionIcon,
+  RejectedIcon,
+  ResolvedIcon,
+  ScanIcon,
+  ShareIcon,
+  SighIcon,
+  StarLineIcon,
+  StarIcon,
+  StepIcon,
+  StopIcon,
+  SuccessIcon,
+  SunIcon,
+  TimeIcon,
+  TransactionIcon,
+  UnlockIcon,
+  UploadIcon,
+  VisibleIcon,
+  WarningIcon,
+} from 'xueyan-react-icon'
 
 export default function Main() {
+  const [ loading, setLoading ] = useState<boolean>(true)
   return (
-    <Article>
-      <Segment>{MARK1}</Segment>
-      <Playground scope={{ React, useState, Fragment, Switch }}>
-        {code1}
-      </Playground>
-    </Article>
+    <div style={{ color: '#f70' }}>
+      <div>
+        <ArrowIcon color="#07f" size="12" />
+        <ArrowIcon color="#07f" size="14" />
+        <ArrowIcon />
+        <ArrowIcon color="#07f" size="18" />
+        <ArrowIcon color="#07f" size="20" />
+      </div>
+      <div>
+        <ArrowIcon direction='top' />
+        <ArrowIcon direction='right' />
+        <ArrowIcon direction='bottom' />
+        <ArrowIcon direction='left' />
+      </div>
+      <div>
+        <ArrowIcon marginLeft={20} display="block" />
+      </div>
+      <div>
+        <LoadingIcon rotating={-500} />
+        <LoadingIcon rotating={500} />
+      </div>
+      <div>
+        <SearchIcon />
+        <SearchIcon flipX />
+        <SearchIcon flipY />
+        <SearchIcon flipX flipY />
+      </div>
+      <div>
+        <LoadingIcon paused={!loading} />
+        <span onClick={() => setLoading(!loading)}>转动或停止</span>
+      </div>
+      <div>
+        <ArrowIcon />
+        <SearchIcon />
+        <LoadingIcon />
+        <BellIcon />
+        <CheckIcon />
+        <CircleIcon />
+        <ClipIcon />
+        <br />
+        <CloseIcon />
+        <CodeIcon />
+        <DecreaseIcon />
+        <DeleteIcon />
+        <DirectionIcon />
+        <DoubtIcon />
+        <DownloadIcon />
+        <br />
+        <DragIcon />
+        <EditIcon />
+        <ErrorIcon />
+        <ExportIcon />
+        <FileIcon />
+        <FolderIcon />
+        <FontIcon />
+        <br />
+        <HomeIcon />
+        <ImportIcon />
+        <IncreaseIcon />
+        <InfoLineIcon />
+        <InfoIcon />
+        <InvisibleIcon />
+        <LabelLineIcon />
+        <br />
+        <LabelIcon />
+        <LockedIcon />
+        <MenuIcon />
+        <MessageIcon />
+        <MinusIcon />
+        <MoonIcon />
+        <MoreIcon />
+        <br />
+        <PauseIcon />
+        <PendingIcon />
+        <PlayIcon />
+        <PlusIcon />
+        <PowerIcon />
+        <QuestionLineIcon />
+        <QuestionIcon />
+        <br />
+        <RejectedIcon />
+        <ResolvedIcon />
+        <ScanIcon />
+        <ShareIcon />
+        <SighIcon />
+        <StarLineIcon />
+        <StarIcon />
+        <br />
+        <StepIcon />
+        <StopIcon />
+        <SuccessIcon />
+        <SunIcon />
+        <TimeIcon />
+        <TransactionIcon />
+        <UnlockIcon />
+        <br />
+        <UploadIcon />
+        <VisibleIcon />
+        <WarningIcon />
+      </div>
+    </div>
   )
 }
