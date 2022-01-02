@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import cn from 'classnames'
 import styles from './icon.scss'
 
-interface PartStyle extends Pick<
+interface IconStyle extends Pick<
   React.CSSProperties,
   | 'width'
   | 'height'
@@ -21,11 +21,11 @@ type IconDirection =
   | 'right'
   | 'bottomRight'
   | 'bottom'
-  | 'BottomLeft'
+  | 'bottomLeft'
   | 'left'
   | 'topLeft'
 
-export interface IconProps extends PartStyle {
+export interface IconProps extends IconStyle {
   /** svg 标签的引用 */
   ref?: React.RefObject<SVGSVGElement>
   /** 类名 */

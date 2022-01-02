@@ -1,4 +1,4 @@
-export { Icon as default } from './icon'
+export { Icon } from './icon'
 export { ArrowIcon } from './arrow-icon'
 export { SearchIcon } from './search-icon'
 export { LoadingIcon } from './loading-icon'
