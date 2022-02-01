@@ -1,8 +1,8 @@
 {
   "name": "xueyan-react-icon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "xueyan-site <yang@xueyan.site>",
-  "license": "MIT",
+  "license": "LGPL-3.0",
   "description": "react icon component about SVG",
   "main": "dist/node",
   "types": "dist/def",
