@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react'
+import React, { forwardRef, useEffect, useRef, useImperativeHandle } from 'react'
 import cn from 'classnames'
 import styles from './icon.scss'
 
@@ -52,6 +52,11 @@ export interface IconProps extends IconStyle {
   color?: React.CSSProperties['color']
 }
 
+export interface IconRef {
+  /** 根节点 */
+  rootNode: SVGSVGElement | null
+}
+
 export interface PackedIconProps extends Omit<IconProps, 'type'|'src'> {}
 
 const DIRECTION_ROTATE_MAP: {
@@ -102,7 +107,7 @@ function loadIcon(type: string, src: string) {
   }
 }
 
-export const Icon = forwardRef<SVGSVGElement, IconProps>(function IconForward({
+export const Icon = forwardRef<IconRef, IconProps>(({
   className,
   type,
   src,
@@ -124,7 +129,13 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function IconForward({
   marginRight,
   marginBottom,
   marginLeft
-}, ref) {
+}, ref) => {
+  const rootRef = useRef<SVGSVGElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    rootNode: rootRef.current
+  }), [rootRef.current])
+
   useEffect(() => {
     loadIcon(type, src)
   }, [type, src])
@@ -166,7 +177,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function IconForward({
 
   return (
     <svg
-      ref={ref}
+      ref={rootRef}
       className={cn(
         styles.icon, 
         rotating && styles.rotating,
