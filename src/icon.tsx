@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 import cn from 'classnames'
 import styles from './icon.scss'
 
@@ -26,8 +26,6 @@ type IconDirection =
   | 'topLeft'
 
 export interface IconProps extends IconStyle {
-  /** svg 标签的引用 */
-  ref?: React.RefObject<SVGSVGElement>
   /** 类名 */
   className?: string
   /** 图标标识名（需保持在页面内唯一） */
@@ -104,8 +102,7 @@ function loadIcon(type: string, src: string) {
   }
 }
 
-export function Icon({
-  ref,
+export const Icon = forwardRef<SVGSVGElement, IconProps>(function IconForward({
   className,
   type,
   src,
@@ -127,8 +124,7 @@ export function Icon({
   marginRight,
   marginBottom,
   marginLeft
-}: IconProps) {
-
+}, ref) {
   useEffect(() => {
     loadIcon(type, src)
   }, [type, src])
@@ -154,9 +150,9 @@ export function Icon({
   const style: React.CSSProperties = {
     width: size || width,
     height: size || height,
+    transition: transition === undefined ? _transition : transition,
     color,
     display,
-    transition: transition === undefined ? _transition : transition,
     margin,
     marginTop,
     marginRight,
@@ -183,4 +179,4 @@ export function Icon({
       <use xlinkHref={'#XR_ICON_' + type} />
     </svg>
   )
-}
+})
