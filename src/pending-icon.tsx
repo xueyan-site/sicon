@@ -10,5 +10,5 @@ const ICON = `
 `
 
 export const PendingIcon = forwardRef<IconRef, PackedIconProps>((props, ref) => {
-  return <Icon rotating={500} {...props} type="_PENDING" src={ICON} />
+  return <Icon rotating={500} {...props} type="_PENDING" src={ICON} ref={ref} />
 })
