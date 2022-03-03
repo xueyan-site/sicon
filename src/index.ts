@@ -59,4 +59,4 @@ export { UploadIcon } from './upload-icon'
 export { VisibleIcon } from './visible-icon'
 export { WarningIcon } from './warning-icon'
 
-export type { IconProps, PackedIconProps } from './icon'
+export type { IconRef, IconProps, IconDirection, PackedIconProps } from './icon'

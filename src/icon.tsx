@@ -15,7 +15,7 @@ interface IconStyle extends Pick<
   | 'marginLeft'
 > {}
 
-type IconDirection = 
+export type IconDirection = 
   | 'top'
   | 'topRight'
   | 'right'
@@ -24,6 +24,11 @@ type IconDirection =
   | 'bottomLeft'
   | 'left'
   | 'topLeft'
+
+export interface IconRef {
+  /** 根节点 */
+  rootNode: SVGSVGElement | null
+}
 
 export interface IconProps extends IconStyle {
   /** 类名 */
@@ -50,11 +55,6 @@ export interface IconProps extends IconStyle {
   size?: number | string
   /** 颜色（需要svg内部的描边或填充色设置为currentColor才能生效） */
   color?: React.CSSProperties['color']
-}
-
-export interface IconRef {
-  /** 根节点 */
-  rootNode: SVGSVGElement | null
 }
 
 export interface PackedIconProps extends Omit<IconProps, 'type'|'src'> {}

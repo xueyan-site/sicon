@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { 
   ArrowIcon, 
   SearchIcon, 
@@ -59,16 +59,23 @@ import {
   UploadIcon,
   VisibleIcon,
   WarningIcon,
+  IconRef,
 } from 'xueyan-react-icon'
 
 export default function Main() {
   const [ loading, setLoading ] = useState<boolean>(true)
+  const iconRef = useRef<IconRef>(null)
+
+  useEffect(() => {
+    console.log(iconRef)
+  }, [])
+  
   return (
     <div style={{ color: '#f70' }}>
       <div>
         <ArrowIcon color="#07f" size="12" />
         <ArrowIcon color="#07f" size="14" />
-        <ArrowIcon />
+        <ArrowIcon ref={iconRef} />
         <ArrowIcon color="#07f" size="18" />
         <ArrowIcon color="#07f" size="20" />
       </div>

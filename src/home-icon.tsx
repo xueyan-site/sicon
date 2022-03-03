@@ -1,5 +1,5 @@
-import React from 'react'
-import { Icon, PackedIconProps } from './icon'
+import React, { forwardRef } from 'react'
+import { Icon, IconRef, PackedIconProps } from './icon'
 
 const ICON = `
 <svg viewBox="0 0 200 200">
@@ -9,6 +9,6 @@ const ICON = `
 </svg>
 `
 
-export function HomeIcon(props: PackedIconProps) {
-  return <Icon {...props} type="_HOME" src={ICON} />
-}       
+export const HomeIcon = forwardRef<IconRef, PackedIconProps>((props, ref) => {
+  return <Icon {...props} type="_HOME" src={ICON} ref={ref} />
+})
