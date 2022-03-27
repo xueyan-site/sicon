@@ -86,7 +86,7 @@ export default function Main() {
         <ArrowIcon direction='left' />
       </div>
       <div>
-        <ArrowIcon marginLeft={20} display="block" />
+        <ArrowIcon style={{ marginLeft: 20, display: 'block' }} />
       </div>
       <div>
         <LoadingIcon rotating={-500} />
@@ -100,7 +100,10 @@ export default function Main() {
       </div>
       <div>
         <LoadingIcon paused={!loading} />
-        <span onClick={() => setLoading(!loading)}>转动或停止</span>
+        <span 
+          onClick={() => setLoading(!loading)}
+          style={{ verticalAlign: 'text-bottom' }}
+        >转动或停止</span>
       </div>
       <div>
         <ArrowIcon />

@@ -2,19 +2,6 @@ import React, { forwardRef, useEffect, useRef, useImperativeHandle } from 'react
 import cn from 'classnames'
 import styles from './icon.scss'
 
-interface IconStyle extends Pick<
-  React.CSSProperties,
-  | 'width'
-  | 'height'
-  | 'display'
-  | 'transition'
-  | 'margin'
-  | 'marginTop'
-  | 'marginRight'
-  | 'marginBottom'
-  | 'marginLeft'
-> {}
-
 export type IconDirection = 
   | 'top'
   | 'topRight'
@@ -30,9 +17,11 @@ export interface IconRef {
   rootNode: SVGSVGElement | null
 }
 
-export interface IconProps extends IconStyle {
+export interface IconProps {
   /** 类名 */
   className?: string
+  /** 样式 */
+  style?: React.CSSProperties
   /** 图标标识名（需保持在页面内唯一） */
   type: string
   /** svg字符串 */
@@ -55,6 +44,10 @@ export interface IconProps extends IconStyle {
   size?: number | string
   /** 颜色（需要svg内部的描边或填充色设置为currentColor才能生效） */
   color?: React.CSSProperties['color']
+  /** 外边距 */
+  margin?: React.CSSProperties['margin']
+  /** 元素基线与行内基线的垂直对齐方式 */
+  verticalAlign?: React.CSSProperties['verticalAlign']
 }
 
 export interface PackedIconProps extends Omit<IconProps, 'type'|'src'> {}
@@ -107,29 +100,7 @@ function loadIcon(type: string, src: string) {
   }
 }
 
-export const Icon = forwardRef<IconRef, IconProps>(({
-  className,
-  type,
-  src,
-  flipX,
-  flipY,
-  rotate,
-  rotating,
-  direction,
-  paused,
-  transform,
-  size,
-  color,
-  width,
-  height,
-  margin,
-  display,
-  transition,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft
-}, ref) => {
+export const Icon = forwardRef<IconRef, IconProps>((props, ref) => {
   const rootRef = useRef<SVGSVGElement>(null)
 
   useImperativeHandle(ref, () => ({
@@ -137,42 +108,40 @@ export const Icon = forwardRef<IconRef, IconProps>(({
   }), [rootRef.current])
 
   useEffect(() => {
-    loadIcon(type, src)
-  }, [type, src])
+    loadIcon(props.type, props.src)
+  }, [props.type, props.src])
 
   // 计算 transaction 和 transform
-  let _transition = undefined
-  let _transform = undefined
-  if (flipX || flipY) {
-    _transform = 'scale(' + (flipX ? '-1': '1') + ',' + (flipY ? '-1' : '1') + ')'
+  let transition = undefined
+  let transform = props.transform
+  if (props.flipX || props.flipY) {
+    transform = 'scale(' + (props.flipX ? '-1': '1') + ',' + (props.flipY ? '-1' : '1') + ')'
   }
-  if (!rotating) {
-    if (direction) {
-      const deg = DIRECTION_ROTATE_MAP[direction]
+  if (!props.rotating) {
+    if (props.direction) {
+      const deg = DIRECTION_ROTATE_MAP[props.direction]
       if (deg) {
-        _transform = (_transform || '') + 'rotate(' + deg + ')'
-        _transition = 'transform 0.3s'
+        transform = (transform || '') + 'rotate(' + deg + ')'
+        transition = 'transform 0.3s'
       }
-    } else if (rotate) {
-      _transform = (_transform || '') + 'rotate(' + rotate + ')'
+    } else if (props.rotate) {
+      transform = (transform || '') + 'rotate(' + props.rotate + ')'
     }
   }
 
   const style: React.CSSProperties = {
-    width: size || width,
-    height: size || height,
-    transition: transition === undefined ? _transition : transition,
-    color,
-    display,
-    margin,
-    marginTop,
-    marginRight,
-    marginBottom,
-    marginLeft,
+    color: props.color,
+    width: props.size,
+    height: props.size,
+    margin: props.margin,
+    verticalAlign: props.verticalAlign,
+    ...props.style,
   }
-  if (rotating) {
-    style.animationDuration = Math.abs(rotating) + 'ms'
-    style.animationName = rotating > 0 ? styles.clockwise : styles.counterclockwise
+  if (props.rotating) {
+    style.animationDuration = Math.abs(props.rotating) + 'ms'
+    style.animationName = props.rotating > 0 ? styles.clockwise : styles.counterclockwise
+  } else if (style.transition === undefined) {
+    style.transition = transition
   }
 
   return (
@@ -180,14 +149,14 @@ export const Icon = forwardRef<IconRef, IconProps>(({
       ref={rootRef}
       className={cn(
         styles.icon, 
-        rotating && styles.rotating,
-        paused && styles.paused,
-        className,
+        props.rotating && styles.rotating,
+        props.paused && styles.paused,
+        props.className,
       )}
-      transform={_transform || transform}
       style={style}
+      transform={transform}
     >
-      <use xlinkHref={'#XR_ICON_' + type} />
+      <use xlinkHref={'#XR_ICON_' + props.type} />
     </svg>
   )
 })
