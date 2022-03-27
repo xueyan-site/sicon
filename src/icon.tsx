@@ -39,9 +39,11 @@ export interface IconProps {
   /** 停止转动 */
   paused?: boolean
   /** 自定义变换（优先级高于rotate、flipX、flipY） */
-  transform?: string
+  transform?: React.CSSProperties['transform']
+  /** 自定义过渡效果 */
+  transition?: React.CSSProperties['transition']
   /** 大小（图标宽度和高度的值） */
-  size?: number | string
+  size?: React.CSSProperties['width']
   /** 颜色（需要svg内部的描边或填充色设置为currentColor才能生效） */
   color?: React.CSSProperties['color']
   /** 外边距 */
@@ -112,18 +114,16 @@ export const Icon = forwardRef<IconRef, IconProps>((props, ref) => {
   }, [props.type, props.src])
 
   // 计算 transaction 和 transform
-  let transition = undefined
   let transform = props.transform
+  let transition = props.transition
   if (props.flipX || props.flipY) {
     transform = 'scale(' + (props.flipX ? '-1': '1') + ',' + (props.flipY ? '-1' : '1') + ')'
   }
   if (!props.rotating) {
     if (props.direction) {
       const deg = DIRECTION_ROTATE_MAP[props.direction]
-      if (deg) {
-        transform = (transform || '') + 'rotate(' + deg + ')'
-        transition = 'transform 0.3s'
-      }
+      transform = (transform || '') + 'rotate(' + deg + ')'
+      transition = 'transform 0.3s'
     } else if (props.rotate) {
       transform = (transform || '') + 'rotate(' + props.rotate + ')'
     }
