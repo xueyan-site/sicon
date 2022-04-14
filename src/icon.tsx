@@ -148,7 +148,7 @@ export const Icon = forwardRef<IconRef, IconProps>((props, ref) => {
     <svg
       ref={rootRef}
       className={cn(
-        styles.icon, 
+        styles.xricon, 
         props.rotating && styles.rotating,
         props.paused && styles.paused,
         props.className,

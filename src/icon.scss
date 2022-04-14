@@ -1,32 +1,32 @@
-.icon {
+.xricon {
   width: 16px;
   height: 16px;
   fill: currentColor;
   stroke: currentColor;
-}
-.rotating {
-  transform-origin: center;
-  animation-play-state: running;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  &.paused {
-    animation-play-state: paused;
+  &.rotating {
+    transform-origin: center;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    &.paused {
+      animation-play-state: paused;
+    }
   }
-}
-@keyframes clockwise {
-  from {
-    transform: rotate(0);
+  @keyframes clockwise {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes counterclockwise {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(-360deg);
+  @keyframes counterclockwise {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
   }
 }
