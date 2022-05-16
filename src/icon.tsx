@@ -117,24 +117,24 @@ export const Icon = forwardRef<IconRef, IconProps>((props, ref) => {
   let transform = props.transform
   let transition = props.transition
   if (props.flipX || props.flipY) {
-    transform = 'scale(' + (props.flipX ? '-1': '1') + ',' + (props.flipY ? '-1' : '1') + ')'
+    transform = cn(transform, 'scale(' + (props.flipX ? '-1': '1') + ',' + (props.flipY ? '-1' : '1') + ')')
   }
   if (!props.rotating) {
     if (props.direction) {
       const deg = DIRECTION_ROTATE_MAP[props.direction]
-      transform = (transform || '') + 'rotate(' + deg + ')'
+      transform = cn(transform, 'rotate(' + deg + 'deg)')
       transition = 'transform 0.3s'
     } else if (props.rotate) {
-      transform = (transform || '') + 'rotate(' + props.rotate + ')'
+      transform = cn(transform, 'rotate(' + props.rotate + 'deg)')
     }
   }
-
   const style: React.CSSProperties = {
     color: props.color,
     width: props.size,
     height: props.size,
     margin: props.margin,
     verticalAlign: props.verticalAlign,
+    transform,
     ...props.style,
   }
   if (props.rotating) {
@@ -147,14 +147,13 @@ export const Icon = forwardRef<IconRef, IconProps>((props, ref) => {
   return (
     <svg
       ref={rootRef}
+      style={style}
       className={cn(
         styles.xricon, 
         props.rotating && styles.rotating,
         props.paused && styles.paused,
         props.className,
       )}
-      style={style}
-      transform={transform}
     >
       <use xlinkHref={'#XR_ICON_' + props.type} />
     </svg>
