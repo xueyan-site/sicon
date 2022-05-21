@@ -17,6 +17,26 @@ fs.readdir('./_icons_', (err, files) => {
   }
 })
 
+function toTable(str) {
+  const re = /\/\*\* ([a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]+)?(（(.+)）)? \*\/\n *(\w+)(\?)?\: (.+)/g
+  const res = []
+  str.replaceAll(re, (...a) => { 
+    res.push('| ' + [
+      a[4],
+      a[1],
+      '\\`' + (a[5] ? '? ' : '') + a[6] + '\\`',
+      a[3]
+    ].join(' | ') + ' |')
+    return ''
+  })
+  const dat = [
+    '| 属性 | 名称 | 类型 | 说明 |',
+    '| - | - | - | - |',
+    res.join('\n')
+  ].join('\n')
+  console.log(dat)
+}
+
 // fs.readdir('./_icons_', (err, files) => {
 //   if (!err && files) {
 //     const cont = files.map(file => {

@@ -1,9 +1,10 @@
 .xricon {
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
   fill: currentColor;
   stroke: currentColor;
   display: inline-block;
+  line-height: inherit;
   &.rotating {
     transform-origin: center;
     animation-play-state: running;

@@ -1,0 +1,20 @@
+.iconbox {
+  height: 72px;
+  background-color: var(--base1);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--main);
+  }
+  .name {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--font);
+  }
+}

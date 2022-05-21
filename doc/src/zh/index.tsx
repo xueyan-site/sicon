@@ -6,13 +6,18 @@ import type { Collection } from 'xueyan-react-doc'
 
 const COLLECTIONS: Collection<string,string>[] = [
   {
-    value: '1',
-    label: 'collection 1',
+    value: '9999',
+    label: '指南',
     contents: [
       {
-        value: '1-1',
-        label: 'chapter 1: introduction',
+        value: '0001',
+        label: '内置图标',
         content: () => import('./0001')
+      },
+      {
+        value: '0002',
+        label: 'Icon 参数',
+        content: () => import('./0002')
       }
     ]
   }
@@ -22,7 +27,7 @@ export default function Index(props: PageProps) {
   return (
     <PageDoc 
       {...props}
-      language="en"
+      language="zh"
       version={pkg.version}
       collections={COLLECTIONS}
       name={pkg.name}

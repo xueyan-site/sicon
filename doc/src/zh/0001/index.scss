@@ -1,0 +1,10 @@
+.search {
+  margin-top: 24px;
+  width: 240px;
+}
+.list {
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+}
