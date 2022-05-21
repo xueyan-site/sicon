@@ -16,7 +16,7 @@ const COLLECTIONS: Collection<string,string>[] = [
       },
       {
         value: '0002',
-        label: 'Icon 参数',
+        label: 'Icon',
         content: () => import('./0002')
       }
     ]
