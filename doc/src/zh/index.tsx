@@ -13,10 +13,16 @@ const COLLECTIONS: Collection<string,string>[] = [
         value: '0001',
         label: '内置图标',
         content: () => import('./0001')
-      },
+      }
+    ]
+  },
+  {
+    value: '9998',
+    label: '接口文档',
+    contents: [
       {
         value: '0002',
-        label: 'Icon',
+        label: 'Icon 组件',
         content: () => import('./0002')
       }
     ]

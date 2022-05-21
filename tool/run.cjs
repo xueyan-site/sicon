@@ -18,7 +18,7 @@ fs.readdir('./_icons_', (err, files) => {
 })
 
 function toTable(str) {
-  const re = /\/\*\* ([a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]+)?(（(.+)）)? \*\/\n *(\w+)(\?)?\: (.+)/g
+  const re = /\/\*\* (.+?)(（(.+)）)? *\*\/\n *(\w+)(\?)?\: (.+)/g
   const res = []
   str.replaceAll(re, (...a) => { 
     res.push('| ' + [

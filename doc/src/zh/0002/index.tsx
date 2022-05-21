@@ -2,6 +2,14 @@ import React from 'react'
 import { Article, Segment } from 'xueyan-react-markdown'
 
 const MARK1 = `
+图标组件
+
+\`\`\`ts
+type Icon = React.ForwardRefExoticComponent<
+  IconProps & React.RefAttributes<IconRef>
+>
+\`\`\`
+
 ## IconProps
 
 | 属性 | 名称 | 类型 | 说明 |
