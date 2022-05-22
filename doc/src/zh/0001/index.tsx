@@ -134,7 +134,8 @@ const MARK1 = `
 
 组件包内置有以下图标：
 
-> 如果内置图标中，没有你想要的图标，请用 Icon 组件进行自定义。
+> 点击图标区块，复制 React 代码。  
+> 如果内置图标中，没有你想要的图标，请用 Icon 组件进行自定义。  
 `
 
 export default function Main() {

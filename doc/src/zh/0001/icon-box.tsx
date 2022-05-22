@@ -16,9 +16,7 @@ export function IconBox({
     <div 
       className={cn(className, styles.iconbox)}
       onClick={() => {
-        if (copyToClipboard(`<${name} />`)) {
-          alert('代码复制成功')
-        }
+        copyToClipboard(`<${name} />`)
       }}
     >
       {createElement(icon, { className: styles.icon })}
