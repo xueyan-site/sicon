@@ -63,6 +63,13 @@ import {
   UploadIcon,
   VisibleIcon,
   WarningIcon,
+  ClassIcon,
+  ComponentIcon,
+  ConstIcon,
+  FunctionIcon,
+  HookFunctionIcon,
+  InterfaceIcon,
+  VariableIcon,
 } from 'xueyan-react-icon'
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
@@ -125,6 +132,13 @@ const ICON_MAP: Record<string, React.ComponentType<any>> = {
   Upload: UploadIcon,
   Visible: VisibleIcon,
   Warning: WarningIcon,
+  Class: ClassIcon,
+  Component: ComponentIcon,
+  Const: ConstIcon,
+  Function: FunctionIcon,
+  HookFunction: HookFunctionIcon,
+  Interface: InterfaceIcon,
+  Variable: VariableIcon,
 }
 
 const ICON_LIST = Object.keys(ICON_MAP)
