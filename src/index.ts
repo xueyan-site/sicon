@@ -65,5 +65,6 @@ export { FunctionIcon } from './function-icon'
 export { HookFunctionIcon } from './hook-function-icon'
 export { InterfaceIcon } from './interface-icon'
 export { VariableIcon } from './variable-icon'
+export { ConfigIcon } from './config-icon'
 
 export type { IconRef, IconProps, IconDirection, PackedIconProps } from './icon'

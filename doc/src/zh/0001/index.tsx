@@ -70,6 +70,7 @@ import {
   HookFunctionIcon,
   InterfaceIcon,
   VariableIcon,
+  ConfigIcon,
 } from 'xueyan-react-icon'
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
@@ -139,6 +140,7 @@ const ICON_MAP: Record<string, React.ComponentType<any>> = {
   HookFunction: HookFunctionIcon,
   Interface: InterfaceIcon,
   Variable: VariableIcon,
+  Config: ConfigIcon,
 }
 
 const ICON_LIST = Object.keys(ICON_MAP)
