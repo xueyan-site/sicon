@@ -4,10 +4,19 @@ import { Article, Segment } from 'xueyan-react-markdown'
 const MARK1 = `
 图标组件
 
-\`\`\`ts
+\`\`\`
 type Icon = React.ForwardRefExoticComponent<
   IconProps & React.RefAttributes<IconRef>
 >
+\`\`\`
+
+## IconRef
+
+\`\`\`
+interface IconRef {
+  /** 根节点 */
+  rootNode: SVGSVGElement | null
+}
 \`\`\`
 
 ## IconProps
@@ -17,7 +26,6 @@ type Icon = React.ForwardRefExoticComponent<
 | className | 类名 | \`? string\` |  |
 | style | 样式 | \`? React.CSSProperties\` |  |
 | type | 图标标识名 | \`string\` | 需保持在页面内唯一 |
-| src | svg字符串 | \`string\` |  |
 | flipX | 水平镜像 | \`? boolean\` | 以图标正中央为中心点，左右对换 |
 | flipY | 垂直镜像 | \`? boolean\` | 以图标正中央为中心点，上下对换 |
 | rotate | 旋转 | \`? number\` | 正负代表顺逆方向，数值代表旋转大小，单位：deg |
@@ -33,9 +41,13 @@ type Icon = React.ForwardRefExoticComponent<
 
 ## IconProps.src
 
-SVG 字符串中的 stroke 和 fill 属性值，可用 currentColor 替换。
+\`string\`
 
-\`\`\`tsx
+svg字符串
+
+> SVG 字符串中的 stroke 和 fill 属性值，可用 currentColor 替换。
+
+\`\`\`
 const ICON = \`
 <svg viewBox="0 0 200 200">
   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
@@ -43,12 +55,14 @@ const ICON = \`
   </g>
 </svg>
 \`
+
+// 请确保 type 在项目中唯一
 <Icon type="xxx" src={ICON}/>
 \`\`\`
 
 ## IconDirection
 
-\`\`\`ts
+\`\`\`
 type IconDirection = 
   | 'top'          // 相当于 rotate = 0deg
   | 'topRight'     // 相当于 rotate = 45deg
@@ -58,15 +72,6 @@ type IconDirection =
   | 'bottomLeft'   // 相当于 rotate = 225deg
   | 'left'         // 相当于 rotate = 270deg
   | 'topLeft'      // 相当于 rotate = 315deg
-\`\`\`
-
-## IconRef
-
-\`\`\`ts
-interface IconRef {
-  /** 根节点 */
-  rootNode: SVGSVGElement | null
-}
 \`\`\`
 `
 

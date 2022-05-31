@@ -146,9 +146,7 @@ const ICON_MAP: Record<string, React.ComponentType<any>> = {
 const ICON_LIST = Object.keys(ICON_MAP)
 
 const MARK1 = `
-本组件是利用 SVG Symbol 可复用的特性实现的，支持按需加载图标、自定义图标、转动、旋转、镜像等功能。
-
-组件包内置有以下图标：
+本包是利用 SVG Symbol 可复用的特性实现的，支持图标的按需加载、自定义、转动、旋转、镜像等功能。内置有以下图标：
 
 > 点击图标区块，复制 React 代码。  
 > 如果内置图标中，没有你想要的图标，请用 Icon 组件进行自定义。  
