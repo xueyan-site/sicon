@@ -1,12 +1,15 @@
 {
-  "name": "xueyan-react-icon",
-  "version": "1.1.6",
+  "name": "sicon",
+  "version": "1.0.0",
   "author": "xueyan-site <xueyan@xueyan.site>",
   "license": "LGPL-3.0",
-  "description": "react icon component about SVG",
+  "description": "react icon component",
   "main": "dist/node",
   "types": "dist/def",
   "module": "dist/web",
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [
     "icon",
     "react",
@@ -16,14 +19,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/xueyan-site/xueyan-react-icon.git"
+    "url": "https://github.com/xueyan-site/sicon.git"
   },
-  "files": [
-    "dist/**/*"
-  ],
   "scripts": {
-    "start": "xt start",
-    "build": "xt build"
+    "start": "sdin start",
+    "build": "sdin build"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.0"

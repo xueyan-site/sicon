@@ -71,7 +71,7 @@ import {
   InterfaceIcon,
   VariableIcon,
   ConfigIcon,
-} from 'xueyan-react-icon'
+} from 'sicon'
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
   Arrow: ArrowIcon, 
