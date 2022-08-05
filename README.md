@@ -4,6 +4,8 @@
 
 React icon component
 
+This package is implemented by using the reusable feature of SVG symbol, and supports the functions of on-demand loading, customization, rotation, rotation, mirroring, etc. of icons.  
+
 ## Document
 
 Please see <https://xueyan.site/sicon>.

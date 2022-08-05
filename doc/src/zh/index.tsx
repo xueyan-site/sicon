@@ -1,9 +1,9 @@
 import React from 'react'
 import { PageDoc } from 'com/page-doc'
+import { ComponentIcon } from 'sicon'
 import pkg from '../../../package.json'
 import type { PageProps } from 'sdin-react'
-import type { Collection } from 'xueyan-react-doc'
-import { ComponentIcon } from 'sicon'
+import type { Collection } from 'ark-doc'
 
 const COMPONENT_ICON = <ComponentIcon color="var(--blue)" />
 

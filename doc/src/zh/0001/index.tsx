@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Article, Segment } from 'xueyan-react-markdown'
+import { Article, Segment } from 'ark-markdown'
 import { IconBox } from './icon-box'
-import { Input } from 'xueyan-react-input'
+import { Input } from 'ark-input'
 import styles from './index.scss'
 import { 
   ArrowIcon, 

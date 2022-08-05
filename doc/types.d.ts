@@ -1,5 +1,3 @@
-import 'sdin-react/dist/def/types'
-
 declare module '*.scss' {
   const content: { [prop:string]: string }
   export default content
@@ -35,6 +33,11 @@ declare module '*.jpg' {
   export default content
 }
 
+declare module '*.jpeg' {
+  const content: string
+  export default content
+}
+
 declare module '*.webp' {
   const content: string
   export default content
@@ -43,10 +46,4 @@ declare module '*.webp' {
 declare module '*.webm' {
   const content: string
   export default content
-}
-
-declare global {
-  interface window {
-    // extend window object
-  }
 }
